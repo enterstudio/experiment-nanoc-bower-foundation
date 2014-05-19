@@ -1,0 +1,17 @@
+{
+  "name": "ExperimentNanocBowerFoundation",
+  "version": "0.0.0",
+  "authors": [
+    "Pencil Case Studios <hello@pencilcasestudios.com>"
+  ],
+  "description": "An experiment to get ZURB Foundation to work in a nanoc project.",
+  "homepage": "http://pencilcasestudios.com",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
