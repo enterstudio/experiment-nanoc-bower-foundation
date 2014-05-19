@@ -62,3 +62,10 @@ data_sources:
 
     # The default encoding for all files in `content/` and `layouts/`.
     encoding: utf-8
+
+
+  # Use the static data source for bower_components
+  # Ref: http://nanoc.ws/docs/troubleshooting/
+  -
+    type: static
+    #items_root: /bower_components/
