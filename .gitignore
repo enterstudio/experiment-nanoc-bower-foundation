@@ -2,4 +2,5 @@
 *~
 .DS_Store
 .output
+bower_components
 tmp
