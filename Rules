@@ -21,7 +21,10 @@
 
 
 
-passthrough "/assets/*"
+require "compass"
+
+Compass.add_project_configuration "lib/compass.rb"
+sass_options = Compass.sass_engine_options
 
 
 
@@ -31,15 +34,30 @@ passthrough "/assets/*"
 
 
 
-compile "*" do
-  if item[:extension] == "css"
-    # don’t filter stylesheets
-  elsif item.binary?
-    # don’t filter binary items
-  else
-    filter :erb
-    layout "default"
-  end
+# Content from the static data source
+passthrough "/bower_components/*"
+
+
+
+
+
+
+
+
+
+# Ref: https://github.com/nanoc/nanoc.ws/blob/master/Rules
+# Ignore SCSS partials
+ignore "/assets/scss/_*/"
+
+compile "/assets/scss/*/" do
+  filter :erb
+  filter :sass, Compass.sass_engine_options
+  #filter :relativize_paths, :type => :css
+end
+
+route "/assets/scss/*/" do
+  #item.identifier.chop + "-v" + rep.item[:version].to_s + ".css"
+  "/assets/stylesheets/" + File.basename(item.identifier) + ".css"
 end
 
 
@@ -50,11 +68,19 @@ end
 
 
 
+# Catch-all
+compile "*" do
+  if item.binary?
+    # don’t filter binary items
+  else
+    filter :erb
+    layout item[:layout] || "default"
+    #filter :relativize_paths, :type => :html
+  end
+end
+
 route "*" do
-  if item[:extension] == "css"
-    # Write item with identifier /foo/ to /foo.css
-    item.identifier.chop + ".css"
-  elsif item.binary?
+  if item.binary?
     # Write item with identifier /foo/ to /foo.ext
     item.identifier.chop + "." + item[:extension]
   else
@@ -62,13 +88,5 @@ route "*" do
     item.identifier + "index.html"
   end
 end
-
-
-
-
-
-
-
-
 
 layout "*", :erb
