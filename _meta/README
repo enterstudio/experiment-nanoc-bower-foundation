@@ -26,7 +26,7 @@ cd ~/Projects/Clients/ExperimentNanocBowerFoundation
 bower update
 bundle update
 gem cleanup
-rm -rf .output tmp
+rm -rf .output tmp .sass-cache
 guard
 
 
