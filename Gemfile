@@ -9,6 +9,7 @@ gem "nanoc"
 
 
 gem "adsf"
+gem "compass"
 gem "foundation"
 gem "guard-bundler"
 gem "guard-nanoc"
