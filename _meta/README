@@ -39,5 +39,12 @@ guard
 
 Hints
 =====
+Bower
+-----
 bower init
 bower install zurb/bower-foundation --save
+
+
+RSpec
+-----
+rspec --init
