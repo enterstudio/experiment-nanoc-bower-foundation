@@ -5,6 +5,37 @@ rm -rf .output tmp
 guard
 
 
+cd ~/Projects/Clients/ExperimentNanocBowerFoundation
+nanoc view
+
+
+cd ~/Projects/Clients/ExperimentNanocBowerFoundation
+tail -f crash.log
+
+
+
+
+
+
+
+
+
+Managing updates
+================
+cd ~/Projects/Clients/ExperimentNanocBowerFoundation
+bower update
+bundle update
+gem cleanup
+rm -rf .output tmp
+guard
+
+
+
+
+
+
+
+
 
 Hints
 =====
