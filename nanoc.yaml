@@ -68,4 +68,14 @@ data_sources:
   # Ref: http://nanoc.ws/docs/troubleshooting/
   -
     type: static
-    #items_root: /bower_components/
+
+
+
+
+
+
+
+
+
+site_name: "nanoc-Bower-Foundation"
+site_sub_title: "An integration experiment"
