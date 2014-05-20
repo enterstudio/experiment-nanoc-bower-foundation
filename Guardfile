@@ -4,11 +4,17 @@ guard 'nanoc' do
   watch(%r{^(content|layouts|lib)/.*$})
 end
 
+
+
+
 guard :bundler do
   watch('Gemfile')
   # Uncomment next line if your Gemfile contains the `gemspec' command.
   # watch(/^.+\.gemspec/)
 end
+
+
+
 
 guard :rspec do
   watch(%r{^spec/.+_spec\.rb$})
@@ -31,3 +37,17 @@ guard :rspec do
   watch(%r{^spec/acceptance/steps/(.+)_steps\.rb$})   { |m| Dir[File.join("**/#{m[1]}.feature")][0] || 'spec/acceptance' }
 end
 
+
+
+
+# Notifications
+# Ref: https://github.com/guard/guard/wiki/System-notifications
+notification :tmux,
+  display_message: true,
+  timeout: 5, # in seconds
+  default_message_format: '%s >> %s',
+  # the first %s will show the title, the second the message
+  # Alternately you can also configure *success_message_format*,
+  # *pending_message_format*, *failed_message_format*
+  line_separator: ' > ', # since we are single line we need a separator
+  color_location: 'status-left-bg' # to customize which tmux element will change color
