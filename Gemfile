@@ -8,9 +8,9 @@ gem "nanoc"
 
 
 
-gem "adsf"
+gem "adsf", ">= 1.2.1"
 gem "compass"
 gem "foundation"
-gem "guard-bundler"
-gem "guard-nanoc"
-gem "guard-rspec"
+gem "guard-bundler", ">= 2.1.0"
+gem "guard-nanoc", ">= 1.0.3"
+gem "guard-rspec", ">= 4.2.10"
