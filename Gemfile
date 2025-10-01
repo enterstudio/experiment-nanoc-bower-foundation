@@ -8,7 +8,7 @@ gem "nanoc"
 
 
 
-gem "adsf"
+gem "adsf", ">= 1.2.1"
 gem "compass"
 gem "foundation"
 gem "guard-bundler"
